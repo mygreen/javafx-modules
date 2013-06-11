@@ -1,0 +1,17 @@
+
+Length
+Max
+Min
+DigitsPattern
+DatePattern
+DateRange
+EmailCheck
+Pattern
+
+# 半角変換
+HalfConverter
+
+Mask
+
+Behaviorで色をを変える。
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	">
+	
+	<!-- AutowiredのScan有効定義 -->
+	<context:annotation-config/>
+	
+	<!-- autowire の設定：以下のパッケージ以下は、「@Resource」アノテーションでインジェクションできます。 -->
+	
+	<!-- Spring Annotation Injectorの登録 -->
+	<bean id="springAnnotationInjector" class="proj.green.javafx.modules.spring.SpringAnnotationInjector" />
+
+	<!-- F層 @Controller, @Service, @Configuration, etc. -->
+	<context:component-scan base-package="proj.green.javafx.modules.spring.test" />
+	
+	<bean id="singleton2Controller" class="proj.green.javafx.modules.spring.test.Singleton2Controller">
+	</bean>
+	
+	<bean id="singleton3Controller" class="proj.green.javafx.modules.spring.test.Singleton3Controller" init-method="init" destroy-method="destroy">
+	</bean>
+	
+	<bean id="prototype2Controller" class="proj.green.javafx.modules.spring.test.Prototype2Controller" scope="prototype">
+	</bean>
+	
+	<bean id="prototype3Controller" class="proj.green.javafx.modules.spring.test.Prototype3Controller" scope="prototype" init-method="init" destroy-method="destroy">
+	</bean>
+	
+</beans>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="myNode" alignment="CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="proj.green.javafx.modules.messagebox.MessageBoxPaneController">
+  <children>
+    <HBox alignment="CENTER" spacing="15.0">
+      <children>
+        <ImageView fx:id="iconImage" fitHeight="47.75" fitWidth="47.75" pickOnBounds="true" preserveRatio="true" smooth="false">
+          <image>
+            <Image url="@icon_information.png" preserveRatio="false" smooth="false" />
+          </image>
+        </ImageView>
+        <VBox fx:id="messageLayoutPane" alignment="CENTER">
+          <children>
+            <Label id="message" fx:id="messageLabel" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" text="メッセージ" textOverrun="CENTER_WORD_ELLIPSIS" />
+          </children>
+          <padding>
+            <Insets bottom="10.0" top="10.0" />
+          </padding>
+          <HBox.margin>
+            <Insets />
+          </HBox.margin>
+        </VBox>
+      </children>
+      <padding>
+        <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+      </padding>
+    </HBox>
+    <HBox fx:id="buttonLayoutPane" alignment="BOTTOM_CENTER" spacing="10.0">
+      <padding>
+        <Insets bottom="30.0" left="20.0" right="20.0" top="10.0" />
+      </padding>
+    </HBox>
+  </children>
+</VBox>

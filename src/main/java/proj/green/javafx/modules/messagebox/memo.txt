@@ -1,0 +1,15 @@
+
+○アイコンの素材
+http://findicons.com/search/warning
+
+エラー
+http://findicons.com/icon/89623/error?width=48
+
+質問
+http://findicons.com/icon/211817/questionmark?width=64
+
+警告
+http://findicons.com/icon/64965/alert
+
+information
+http://findicons.com/icon/89617/info?width=48

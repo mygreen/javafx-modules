@@ -1,0 +1,117 @@
+
+○独自にDestroyメソッドを呼ぶ
+=======================================================
+
+    public void destroyProrotypeObject() {
+        
+        if(getPrototypeObject() == null || getPrototypeObject().isEmpty()) {
+            return;
+        }
+        
+        for(Object obj : getPrototypeObject()) {
+            
+            if(obj == null) {
+                continue;
+            }
+            
+            try {
+                callDestroyMethod(obj);
+                callDestroyAnnotation(obj);
+            } catch (Throwable e) {
+                continue;
+            }
+        }
+    }
+    
+    private void callDestroyMethod(final Object obj) throws Throwable {
+        
+        if(obj == null) {
+            return;
+        }
+        
+        if(!(obj instanceof DisposableBean)) {
+            return;
+        }
+        
+        try {
+            final Method method = obj.getClass().getMethod("destroy", null);
+            method.invoke(obj, null);
+            
+        } catch(Throwable e) {
+            throw e;
+        }
+        
+        
+    }
+    
+    private static void callDestroyAnnotation(final Object obj) throws Throwable {
+        
+        if(obj == null) {
+            return;
+        }
+        
+        final Method[] publicMethodList = obj.getClass().getMethods();
+        for(Method method : publicMethodList) {
+            final PreDestroy preDestroyAnno = method.getAnnotation(PreDestroy.class);
+            if(preDestroyAnno == null) {
+                continue;
+            }
+            
+            if(method.getParameterTypes().length != 0) {
+                // 引数ありの場合は除外
+                continue;
+            }
+            
+            try {
+                method.invoke(obj, null);
+            } catch(Throwable e) {
+                throw e;
+            }
+        }
+        
+        final Method[] decrareMethodList = obj.getClass().getDeclaredMethods();
+        for(Method method : decrareMethodList) {
+            method.setAccessible(true);
+            
+            final PreDestroy preDestroyAnno = method.getAnnotation(PreDestroy.class);
+            if(preDestroyAnno == null) {
+                continue;
+            }
+            
+            if(method.getParameterTypes().length != 0) {
+                // 引数ありの場合は除外
+                continue;
+            }
+            
+            try {
+                method.invoke(obj, null);
+            } catch(Throwable e) {
+                throw e;
+            }
+        }
+        
+    }
+    
+○アノテーションからprototypeと判定する
+=========================================================================
+
+    /**
+     * prototypeのオブジェクトかどうか。
+     * <p>Springのアノテーション「@Scope(BeanDefinition.SCOPE_PROTOTYPE)」が付与されているかで判断する。
+     * @param object
+     */
+    public boolean isPrototypeBean2(final Object object) {
+        if(object == null) {
+            return false;
+        }
+        
+        final Class<?> clazz = object.getClass();
+        final Scope scopeAnno = clazz.getAnnotation(Scope.class);
+        if(scopeAnno == null) {
+            return false;
+        }
+        
+        return scopeAnno.value().equalsIgnoreCase(BeanDefinition.SCOPE_PROTOTYPE);
+        
+    }
+    

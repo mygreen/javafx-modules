@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="125.560546875" prefWidth="197.12109375" xmlns:fx="http://javafx.com/fxml" fx:controller="proj.green.javafx.modules.spring.test.Prototype3Controller">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Text layoutX="56.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="test3" />
+  </children>
+</AnchorPane>

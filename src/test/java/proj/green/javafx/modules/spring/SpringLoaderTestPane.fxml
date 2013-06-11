@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="myNode" prefHeight="151.0" prefWidth="302.87890625" xmlns:fx="http://javafx.com/fxml" fx:controller="proj.green.javafx.modules.spring.SpringLoaderTestPaneController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Text layoutX="44.0" layoutY="29.0" scaleX="1.4211156335062594" scaleY="1.5729472650998138" strokeType="OUTSIDE" strokeWidth="0.0" text="Spring Fxml Loader Test" />
+    <Button layoutX="22.0" layoutY="56.0" mnemonicParsing="false" onAction="#handleSingleton1" text="Singleton1" />
+    <Button layoutX="115.0" layoutY="57.0" mnemonicParsing="false" onAction="#handleSingleton2" text="Singleton2" />
+    <Button layoutX="215.0" layoutY="56.0" mnemonicParsing="false" onAction="#handleSingleton3" text="Singleton3" />
+    <Button layoutX="22.0" layoutY="93.0" mnemonicParsing="false" onAction="#handlePrototype1" text="Prototype1" />
+    <Button layoutX="115.0" layoutY="93.0" mnemonicParsing="false" onAction="#handlePrototype2" text="Prototype2" />
+    <Button layoutX="215.0" layoutY="93.0" mnemonicParsing="false" onAction="#handlePrototype3" text="Prototype2" />
+  </children>
+</AnchorPane>
