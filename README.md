@@ -10,6 +10,12 @@ javafx-modules
 + Java1.7.+
 + JavaFX2.2+
 
+# ダウンロード
+-------------------------------
++ [JavaDoc](http://tatsu-no-otoshigo.github.io/javafx-modules/apidocs/index.html)
++ [Download](http://tatsu-no-otoshigo.github.io/javafx-modules/download/)
+
+
 # fxmlモジュールの使い方（proj.green.javafx.modules.fxml）
 ------------------------------
 
